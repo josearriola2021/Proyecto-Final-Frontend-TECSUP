@@ -1,4 +1,6 @@
+const BASE_URL = process.env.REACT_APP_BASE_URL || "";
+
 export const config = {
-    baseUrl: "https://josearriola2021.github.io/dataJson/data.json"
+    baseUrl: BASE_URL
 };
  
