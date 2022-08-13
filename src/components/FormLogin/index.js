@@ -57,9 +57,6 @@ const FormLogin = ({loadings, enterLoading, showModalRegistrarse}) => {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
         </Form.Item>
-        {mensajeUserNoAuth == false && (
-          <div className="text-red-500 pb-1">Usuario no registrado</div>
-        )}
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loadings[0]}>
             Log in

@@ -35,7 +35,7 @@ export const AuthProvider = ({children}) => {
       // }
       if (
         (result == true && values.password !== "" && userAdmin != "") ||
-        userRegistrado != ""
+        userRegistrado.length > 0
       ) {
         enterLoading(0);
         setTimeout(() => {
@@ -56,8 +56,6 @@ export const AuthProvider = ({children}) => {
           window.location.href="/"
         }, 4000);
         setMensajeUserNoAuth(true);
-      } else{
-        setMensajeUserNoAuth(false);
       }
     }
 
