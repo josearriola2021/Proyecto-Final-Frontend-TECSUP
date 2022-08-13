@@ -7,6 +7,7 @@ export const AuthProvider = ({children}) => {
     //Lo setea desde un inicio
     const userStorage = JSON.parse(localStorage.getItem("userAuth")) || "Iniciar Sesión";
     const [userAuth, setUserAuth] = useState(userStorage);
+    const [mensajeUserNoAuth, setMensajeUserNoAuth] = useState(true);
     const jsonUsers = require("../json/data.json");
     const users = jsonUsers["users"];
 
@@ -29,9 +30,12 @@ export const AuthProvider = ({children}) => {
           user.password == values.password
         );
       });
+      // if (userAdmin == "" || userRegistrado) {
+        
+      // }
       if (
         (result == true && values.password !== "" && userAdmin != "") ||
-        userRegistrado.length > 0
+        userRegistrado != ""
       ) {
         enterLoading(0);
         setTimeout(() => {
@@ -51,6 +55,9 @@ export const AuthProvider = ({children}) => {
             : setUserAuth(userRegistrado[0].nickname);
           window.location.href="/"
         }, 4000);
+        setMensajeUserNoAuth(true);
+      } else{
+        setMensajeUserNoAuth(false);
       }
     }
 
@@ -75,7 +82,7 @@ export const AuthProvider = ({children}) => {
       saveProductos(productosIniciarSesion);
     }
 
-    return ( <AuthContext.Provider value={{userAuth, setUserAuth, login, logout, users}}>{children}</AuthContext.Provider> );
+    return ( <AuthContext.Provider value={{userAuth, setUserAuth, login, logout, mensajeUserNoAuth, users}}>{children}</AuthContext.Provider> );
 
 };
  

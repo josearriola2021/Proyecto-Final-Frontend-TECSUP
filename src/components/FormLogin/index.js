@@ -4,7 +4,7 @@ import {Button, Checkbox, Form, Input} from "antd";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 const FormLogin = ({loadings, enterLoading, showModalRegistrarse}) => {
-    const { login } = useContext(AuthContext); //Funcion del context para actualizar el Usuario autenticado
+    const { login, mensajeUserNoAuth } = useContext(AuthContext); //Funcion del context para actualizar el Usuario autenticado
 
     //Constante para validacion de iniciar Sesion
     const validacionIniciarSesion = (values) => {
@@ -57,6 +57,9 @@ const FormLogin = ({loadings, enterLoading, showModalRegistrarse}) => {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
         </Form.Item>
+        {mensajeUserNoAuth == false && (
+          <div className="text-red-500 pb-1">Usuario no registrado</div>
+        )}
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loadings[0]}>
             Log in
