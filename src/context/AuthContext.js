@@ -75,7 +75,7 @@ export const AuthProvider = ({children}) => {
 
     //Remueve los productos de iniciar sesión al momento de desloguearse
     function removeProductosIniciarSesion(){
-      const productoStorageCarritoCompras = JSON.parse(localStorage.getItem("carritoCompras"));
+      const productoStorageCarritoCompras = JSON.parse(localStorage.getItem("carritoCompras")) ?? [];
       const productosIniciarSesion = productoStorageCarritoCompras.filter(producto => producto.user !== "Iniciar Sesión");
       saveProductos(productosIniciarSesion);
     }
