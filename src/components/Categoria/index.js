@@ -26,7 +26,7 @@ const Categoria = ({setEstadoCategoria, setActiveBuscador, setCheckedList, check
           />
         </div>
         <div className="sm: absolute -mt-14 ml-4 w-40 md:hidden">
-          <Button size="base" onClick={showDrawer} style={{ width: "200px" }}>
+          <Button size="base" onClick={showDrawer} style={{ width: "150px" }}>
             <i class="bi bi-list"></i>&nbsp;<span>Categorías</span>
           </Button>
         </div>
